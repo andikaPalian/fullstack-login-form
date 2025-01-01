@@ -1,5 +1,39 @@
+.login-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 13.5rem;
+}
+
 .login-form {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  padding-top: 2.5rem; 
+  padding-bottom: 2.5rem; 
+  padding-left: 1.75rem; 
+  padding-right: 1.75rem; 
+  background-color: #ffffff; 
+  border-width: 1px; 
+  border-style: solid; 
+  border-color: #d3d3d3; 
+  border-radius: 0.25rem;
+  width: 24rem; 
+}
+
+.login {
+    font-size: 1.5rem;
+    font-weight: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.email-login {
+    font-size: small;
+    line-height: 1.25rem;
+    width: 100%;
+    background-color: transparent;
+    border-width: 1.5px;
+    border-radius: 0.25rem;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    outline: 2px solid transparent;
 }
