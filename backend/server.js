@@ -8,7 +8,13 @@ dotenv.config();
 db();
 
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+    // Sesuaikan dengan URL frontend 
+    origin: 'http://localhost:5173',
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    credentials: true,
+}));
 
 app.use("/api/user", require("./routes/user.routes"));
 
