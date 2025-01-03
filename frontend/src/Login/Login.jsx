@@ -19,17 +19,17 @@ const Login = () => {
     }
 
     try {
-      const response = await axiosInstance.post("/user/login", {
+      const response = await axiosInstance.post("/api/user/login", {
         email,
         password,
       });
 
       const {data} = response.data;
-      if (data?.token) {
+      if (!data?.token) {
         throw new error ("Token not found in response");
       };
 
-      localStorage.setItem("token", `Bearer ${data.tokem}`);
+      localStorage.setItem("token", `Bearer ${data.token}`);
       if (data.user) {
         localStorage.setItem("user", JSON.stringify(data.user));
       };

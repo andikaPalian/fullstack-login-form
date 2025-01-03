@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import PassswordInput from "../components/Input/PasswordInput";
 import "./register.css";
+import axiosInstance from "../utils/axiosInstance";
 
 const Register = () => {
   const [username, setUsername] = useState("");
@@ -10,11 +11,24 @@ const Register = () => {
   const [error, setError] = useState(false);
   const navigate = useNavigate();
 
-  const handleRegister = (e) => {
+  const handleRegister = async (e) => {
     e.preventDefault();
     setError(false);
     if (!username || !email || !password) {
       setError("Please enter username, email and password");
+    };
+
+    try {
+      const response = await axiosInstance.post("/api/user/register", {
+        username,
+        email,
+        password,
+      });
+      console.log("Register response:", response.data);
+      navigate("/")
+    } catch (error) {
+      setError(error.response?.data?.message || "Registration failed");
+      console.error("Register error:", error.response?.data || error.message);
     }
   };
   return (
